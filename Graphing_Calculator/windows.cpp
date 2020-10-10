@@ -203,6 +203,9 @@ void GraphLayout::okClicked() {
     auto ita = GS->Slines->begin();
     for (auto it : lines) {
         (*(*ita)) = it->text();
+        if ((*ita)->isEmpty()) {
+            (*(*ita)) = "0";
+        }
         ++ita;
     }
     emit sendForm();
@@ -213,13 +216,13 @@ void GraphLayout::deleteGraphClicked() {
 void GraphLayout::setTransparency(int optlvl) {
     GS->setWindowOpacity(float(optlvl) / 100);
 }
-void GraphLayout::plusClicked() {\
+void GraphLayout::plusClicked() {
     //add back Graphing line
     lines.push_back(new QLineEdit);
     GS->Slines->push_back(new QString);
     GS->SlinesOld->push_back(new QString);
-    linesHor->addWidget(lines.back());
     GS->solvers->push_back(new solver("0"));
+    linesHor->addWidget(lines.back());
 }
 void GraphLayout::minusClicked() {
     //delete back graphing line
@@ -229,8 +232,10 @@ void GraphLayout::minusClicked() {
         delete GS->SlinesOld->back();
         delete GS->solvers->back();
         lines.pop_back();
-        GS->Slines->push_back(new QString);
+        GS->Slines->pop_back();
+        GS->SlinesOld->pop_back();
         GS->solvers->pop_back();
+        GS->update();
     }
 }
 
@@ -240,6 +245,7 @@ menueHor(new QHBoxLayout){
     menueHor->addWidget(addGraph);
     mainVer->addItem(menueHor);
     mainVer->addStretch(5);
+    mainVer->setAlignment(Qt::AlignTop);
     setLayout(mainVer);
     connect(addGraph, SIGNAL(clicked()), this, SLOT(addGraphClicked()));
     addGraphLine();

@@ -45,11 +45,11 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 				while (*ita >= '0' && *ita <= '9' || *ita == '.') {
 					++ita;
 				}
-			} else if (*ita == '('){
+			} else if (*ita == '(' || *ita == '['){
 				++deptha;
 				while (deptha != depth) {
 					++ita;
-					if (*ita == '(') {
+					if (*ita == '(' || *ita == '[') {
 						++deptha;
 					} else if (*ita == ')') {
 						--deptha;
@@ -71,7 +71,7 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 					--itb;
 					if (*itb == ')') {
 						++deptha;
-					} else if (*itb == '(') {
+					} else if (*itb == '(' || *itb == '[') {
 						--deptha;
 					}
 				}
@@ -80,7 +80,7 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 					--itb;
 				}
 			}
-			if (*itb != '(' || *ita != ')') {
+			if ((*itb != '(' && *itb != '[') || *ita != ')') {
 				++itb;
 				work->insert(itb, '(');
 				work->insert(ita, ')');
@@ -103,9 +103,6 @@ void solver::parser(std::string eq) {
 		while(strL->front() != '\\') {
 			strL->pop_front();
 		}
-	}
-	if (strL->empty()) {
-		strL->push_back(0);
 	}
 	strL->push_front('\\');
 	strL->push_back('\\');
