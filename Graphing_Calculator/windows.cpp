@@ -24,7 +24,7 @@ GraphBuilder::~GraphBuilder() {
     delete solvers;
     delete dots;
 }
-void GraphBuilder::build(std::vector<std::pair<int, int>> *dots, solver* solv) {
+void GraphBuilder::build(solver* solv) {
     //builds the points on which the graph will be drawn
     for (long long i = 0; i < width() && i < dots->size(); ++i) {
         double x = double((i - width() / 2) - offx) / scale;
@@ -74,7 +74,7 @@ void GraphBuilder::paintEvent(QPaintEvent *event) {
         }
     }
     for (auto it : *solvers) {//paints graphs
-        build(dots, it);
+        build(it);
         painter->setPen(Qt::black);
         if (it->seq[0] == '\\') {
             switch (it->seq[1]) {
@@ -239,15 +239,15 @@ void GraphLayout::minusClicked() {
     }
 }
 
-MyWindow::MyWindow(QWidget *parent) : QWidget(parent), linesNum(0), mainVer(new QVBoxLayout), addGraph(new QPushButton("addGraph")),
-menueHor(new QHBoxLayout){
+MyWindow::MyWindow(QWidget *parent) : QWidget(parent), linesNum(0), mainVer(new QVBoxLayout), 
+addGraphingLine(new QPushButton("Add graphing line")), menueHor(new QHBoxLayout){
     setWindowTitle("Enter your Graph");
-    menueHor->addWidget(addGraph);
+    menueHor->addWidget(addGraphingLine);
     mainVer->addItem(menueHor);
     mainVer->addStretch(5);
     mainVer->setAlignment(Qt::AlignTop);
     setLayout(mainVer);
-    connect(addGraph, SIGNAL(clicked()), this, SLOT(addGraphClicked()));
+    connect(addGraphingLine, SIGNAL(clicked()), this, SLOT(addGraphClicked()));
     addGraphLine();
 }
 void MyWindow::addGraphLine() {
