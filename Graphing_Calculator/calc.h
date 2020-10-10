@@ -3,7 +3,7 @@
 #include <list>
 
 /// <summary>
-/// node for recursive equation solving
+/// node for binary tree of operations
 /// 
 /// </summary>
 struct node {
