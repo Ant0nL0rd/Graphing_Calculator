@@ -78,11 +78,17 @@ void GraphBuilder::paintEvent(QPaintEvent *event) {
         painter->setPen(Qt::black);
         if (it->seq[0] == '\\') {
             switch (it->seq[1]) {
+            case 'v': painter->setPen("#9932cc"); break;
             case 'r': painter->setPen(Qt::red); break;
             case 'g': painter->setPen(Qt::green); break;
             case 'b': painter->setPen(Qt::blue); break;
             case 'y': painter->setPen(Qt::yellow); break;
             case 'c': painter->setPen(Qt::darkCyan); break;
+            case '#': char colour[7];
+                for (int i = 0; i < 7; ++i) {
+                    colour[i] = it->seq[i + 1];
+                }
+                painter->setPen(colour);
             }
         }
         //paints lines between dots if point not too extreme

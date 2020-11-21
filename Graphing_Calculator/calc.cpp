@@ -1,5 +1,19 @@
 #include "calc.h"
 #include <iostream>
+#include <map>
+
+#define Xsin -128
+#define Xarcsin -127
+#define Xsh -126
+#define Xcos -125
+#define Xarccos -124
+#define Xch -123
+#define Xtan -122
+#define Xarctan -121
+#define Xth -120
+#define Xexp -119
+
+#define ISFUN(x) (x > -129 && x < -118)
 
 solver::solver(std::string _eq) : seq(_eq), root(new node) {
 	parser(_eq);
@@ -36,7 +50,7 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 			int deptha = depth;
 			auto ita = it;
 			++ita;
-			if (*ita == 's' || *ita == 'c' || *ita == 't' || *ita == 'e') {
+			if (ISFUN(*ita)) {
 				++ita;
 			}
 			if (*ita == 'x') {
@@ -76,7 +90,7 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 					}
 				}
 				--itb;
-				if (*itb == 's' || *itb == 'c' || *itb == 't' || *itb == 'e') {
+				if (ISFUN(*itb)) {
 					--itb;
 				}
 			}
@@ -107,7 +121,55 @@ void solver::parser(std::string eq) {
 	strL->push_front('\\');
 	strL->push_back('\\');
 	for (auto it = strL->begin(); it != strL->end(); ++it) {
-		if (*it == 's' || *it == 'c' || *it == 't' || *it == 'e') {
+		auto ita = it;
+		++ita;
+		if (*it == 's') {
+			if (*ita != '(') {
+				if (*ita++ == 'i' && *ita == 'n') {
+					strL->erase((ita--));
+					strL->erase(ita);
+					*it = Xsin;
+				} else if (*ita == 'h') {
+					strL->erase(ita);
+					*it = Xsh;
+				}
+			}
+		}else if (*it == 'c') {
+			if (*ita != '(') {
+				if (*ita++ == 'o' && *ita =='s') {
+					strL->erase((ita--));
+					strL->erase(ita);
+					*it = Xcos;
+				} else if (*ita == 'h') {
+					strL->erase(ita);
+					*it = Xch;
+				}
+			}
+		}else if (*it == 't') {
+			if (*ita++ == 'a' && *ita == 'n') {
+					strL->erase((ita--));
+					strL->erase(ita);
+					*it = Xtan;
+			} else if (*ita == 'h') {
+				strL->erase(ita);
+				*it = Xth;
+			}
+		}else if (*it == 'e') {
+			if (*ita++ == 'x' && *ita == 'p') {
+				strL->erase((ita--));
+				strL->erase(ita);
+				*it = Xexp;
+			}
+		} else if (*it == 'a' && *ita++ == 'r' && *ita++ == 'c') {
+			switch (*ita) {
+			case 's': if (*++ita == 'i' && *++ita == 'n') { *it == Xarcsin; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
+			case 'c': if (*++ita == 'o' && *++ita == 's') { *it == Xarccos; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
+			case 't': if (*++ita == 'a' && *++ita == 'n') { *it == Xarctan; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
+			}
+		}
+
+
+		if (ISFUN(*it)) {
 			++it;
 			*it = '[';
 		}
@@ -116,6 +178,20 @@ void solver::parser(std::string eq) {
 		if (*it == 'p') {
 			for (auto ita : "3.14159265358979323846") {
 				strL->insert(it, ita);
+			}
+			auto ita = it;
+			--it;
+			strL->erase(ita);
+		} else if (*it == 'e') {
+			for (auto ita : "2.71828182845904523536") {
+				strL->insert(it, ita);
+			}
+			auto ita = it;
+			--it;
+			strL->erase(ita);
+		} else if (*it == 'g') {
+			for (auto ita : "1.61803398874989484820") {
+					strL->insert(it, ita);
 			}
 			auto ita = it;
 			--it;
@@ -159,13 +235,13 @@ void solver::parser(std::string eq) {
 				++it;
 			}
 			--it;
-		} else if (*it == '*' || *it == '/' || *it == '+' || *it == '-' || *it == '^') {
+		} else if (*it == '*' || *it == '/' || *it == '+' || *it == '-' || *it == '^' || *it == 'l') {
 			cur = cur->par;
 			cur->sig = *it;
 			cur->r = new node;
 			cur->r->par = cur;
 			cur = cur->r;
-		} else if (*it == 's' || *it == 'c' || *it == 't' || *it == 'e') {
+		} else if (ISFUN(*it)) {
 			cur->fun = *it;
 			cur->l = new node;
 			cur->l->par = cur;
@@ -186,13 +262,20 @@ double solver::rec_count(node *cur, double var) {
 		case '*':	return rec_count(cur->l, var) * rec_count(cur->r, var); break;
 		case '/':	return rec_count(cur->l, var) / rec_count(cur->r, var); break;
 		case '^':	return pow(rec_count(cur->l, var), rec_count(cur->r, var)); break;
+		case 'l':	return log(rec_count(cur->l, var)) / log(rec_count(cur->r, var)); break;
 		}
 	} else {
 		switch (cur->fun) {
-		case 's':	return(sin(rec_count(cur->l, var))); break;
-		case 'c':	return(cos(rec_count(cur->l, var))); break;
-		case 't':	return(tan(rec_count(cur->l, var))); break;
-		case 'e':	return(exp(rec_count(cur->l, var))); break;
+		case Xsin:	return(sin(rec_count(cur->l, var))); break;
+		case Xsh:	return(sinh(rec_count(cur->l, var))); break;
+		case Xarcsin:	return(asin(rec_count(cur->l, var))); break;
+		case Xcos:	return(cos(rec_count(cur->l, var))); break;
+		case Xch:	return(cosh(rec_count(cur->l, var))); break;
+		case Xarccos:	return(acos(rec_count(cur->l, var))); break;
+		case Xtan:	return(tan(rec_count(cur->l, var))); break;
+		case Xth:	return(tanh(rec_count(cur->l, var))); break;
+		case Xarctan:	return(atan(rec_count(cur->l, var))); break;
+		case Xexp:	return(exp(rec_count(cur->l, var))); break;
 		}
 	}
 }

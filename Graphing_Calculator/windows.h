@@ -1,3 +1,4 @@
+#pragma once
 #include "calc.h"
 #include <utility>
 #include <iostream>
