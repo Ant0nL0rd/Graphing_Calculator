@@ -12,8 +12,9 @@
 #define Xarctan -121
 #define Xth -120
 #define Xexp -119
+#define Xln -118
 
-#define ISFUN(x) (x > -129 && x < -118)
+#define ISFUN(x) (x > -129 && x < -117)
 
 solver::solver(std::string _eq) : seq(_eq), root(new node) {
 	parser(_eq);
@@ -166,9 +167,10 @@ void solver::parser(std::string eq) {
 			case 'c': if (*++ita == 'o' && *++ita == 's') { *it == Xarccos; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
 			case 't': if (*++ita == 'a' && *++ita == 'n') { *it == Xarctan; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
 			}
+		} else if (*it == 'l' && *ita == 'n') {
+			strL->erase(ita);
+			*it = Xln;
 		}
-
-
 		if (ISFUN(*it)) {
 			++it;
 			*it = '[';
@@ -266,16 +268,17 @@ double solver::rec_count(node *cur, double var) {
 		}
 	} else {
 		switch (cur->fun) {
-		case Xsin:	return(sin(rec_count(cur->l, var))); break;
-		case Xsh:	return(sinh(rec_count(cur->l, var))); break;
+		case Xsin:   	return(sin(rec_count(cur->l, var))); break;
+		case Xsh:	    return(sinh(rec_count(cur->l, var))); break;
 		case Xarcsin:	return(asin(rec_count(cur->l, var))); break;
-		case Xcos:	return(cos(rec_count(cur->l, var))); break;
-		case Xch:	return(cosh(rec_count(cur->l, var))); break;
+		case Xcos:	    return(cos(rec_count(cur->l, var))); break;
+		case Xch:	    return(cosh(rec_count(cur->l, var))); break;
 		case Xarccos:	return(acos(rec_count(cur->l, var))); break;
-		case Xtan:	return(tan(rec_count(cur->l, var))); break;
-		case Xth:	return(tanh(rec_count(cur->l, var))); break;
+		case Xtan:	    return(tan(rec_count(cur->l, var))); break;
+		case Xth:	    return(tanh(rec_count(cur->l, var))); break;
 		case Xarctan:	return(atan(rec_count(cur->l, var))); break;
-		case Xexp:	return(exp(rec_count(cur->l, var))); break;
+		case Xexp:	    return(exp(rec_count(cur->l, var))); break;
+		case Xln:       return(log(rec_count(cur->l, var))); break;
 		}
 	}
 }

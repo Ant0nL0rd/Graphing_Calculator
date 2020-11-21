@@ -171,6 +171,8 @@ public:
 	MyWindow(QWidget *parent = 0);
 private:
     QPushButton *addGraphingLine; /**< button will add Graphing line on click. */ 
+    QPushButton *viewInfo; /**< button will show info window. */
+    QLabel *InfoWidget;
     QHBoxLayout *menueHor; /**< Layout contains top line widgets. */ 
     QVBoxLayout *mainVer;  /**< Layout contains menue line and Graphing lines. */ 
     std::list<GraphLayout*> graphLines;  /**< list for graphing line layouts. */ 
@@ -191,6 +193,10 @@ private slots:
     /// slot connected to addGraphLine();
     /// </summary>
     void addGraphClicked();
+    /// <summary>
+    /// slot connected to ViewInfo();
+    /// </summary>
+    void viewInfoClicked();
 
     /// <summary>
     /// deletes last in list graphing line and removes it from main vertical layout
