@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['lbl_6',['lbl',['../struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622',1,'GraphLayout']]],
-  ['lines_7',['lines',['../struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd',1,'GraphLayout']]]
+  ['graphbuilder_4',['GraphBuilder',['../class_graph_builder.html',1,'']]],
+  ['graphlayout_5',['GraphLayout',['../struct_graph_layout.html',1,'GraphLayout'],['../struct_graph_layout.html#af316aa80b73e6fa0c36efc6824a89141',1,'GraphLayout::GraphLayout()']]],
+  ['gs_6',['GS',['../struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe',1,'GraphLayout']]]
 ];

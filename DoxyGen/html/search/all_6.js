@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['paintevent_13',['paintEvent',['../class_graph_builder.html#ace63379df99c3c18965411e558223f62',1,'GraphBuilder']]],
-  ['parser_14',['parser',['../classsolver.html#ad819aa1b01ce95367006abb37cb6c689',1,'solver']]]
+  ['okclicked_14',['okClicked',['../struct_graph_layout.html#a51da092709881ba6ee5029237fef7189',1,'GraphLayout']]]
 ];

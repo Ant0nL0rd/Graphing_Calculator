@@ -4,29 +4,22 @@
 #include <list>
 #include <map>
 
-/// <summary>
-/// node for binary tree of operations
-/// 
-/// </summary>
+
 
 
 /// <summary>
 /// 
 /// </summary>
 class solver {
-	struct node {
-		node *l, *r, *par;
-		char sig;
-		bool var; /**< true if variable is used in this part of equation. */
-		double val;
-		node() : l(nullptr), r(nullptr), par(nullptr), sig(NULL), var(false), val(0) {}
-	};
-	struct BorNode {
-		std::map<char, BorNode*> next;
-		int depth;
-		char code;
-		BorNode(int depth_ = 0) : depth(depth_), code(NULL) {}
-	};
+	/// <summary>
+	/// node for binary tree of operations
+	/// </summary>
+	struct node;
+
+	/// <summary>
+	/// node for functions search
+	/// </summary>
+	struct BorNode;
 
 	node *root;  /**< root of binary tree of operations. */
 	BorNode *bor;  /**< root of Bor tree. */

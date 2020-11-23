@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wheelevent_47',['wheelEvent',['../class_graph_builder.html#af2830a71a342d8b20ac7423a81c3f7db',1,'GraphBuilder']]]
+  ['resizeevent_48',['resizeEvent',['../class_graph_builder.html#adcabce8cde653c495dfa484bdc0b7594',1,'GraphBuilder']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resizeevent_42',['resizeEvent',['../class_graph_builder.html#adcabce8cde653c495dfa484bdc0b7594',1,'GraphBuilder']]]
+  ['okclicked_44',['okClicked',['../struct_graph_layout.html#a51da092709881ba6ee5029237fef7189',1,'GraphLayout']]]
 ];

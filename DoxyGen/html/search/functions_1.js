@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['formatupdate_35',['formatUpdate',['../class_graph_builder.html#af2a8e9db9c58a07905e9af800796de55',1,'GraphBuilder']]]
+  ['deletegraphclicked_37',['deleteGraphClicked',['../struct_graph_layout.html#aa0b67c3110f3ab814139544bcf3dd914',1,'GraphLayout']]]
 ];

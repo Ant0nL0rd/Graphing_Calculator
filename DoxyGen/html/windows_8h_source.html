@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="New Bitmap Image.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">My Project
-   &#160;<span id="projectnumber">0.0002</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
    <div id="projectbrief">Simple graphics visualizer</div>
   </td>
@@ -72,85 +72,85 @@ $(function() {
 <div class="title">windows.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;calc.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QtWidgets/QMainWindow&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QPainter&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QWheelEvent&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QMouseEvent&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QResizeEvent&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QCloseEvent&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QlineEdit&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QCheckBox&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QSpinBox&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;QSlider&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;QHBoxLayout&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_graph_builder.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_graph_builder.html">GraphBuilder</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_graph_builder.html">GraphBuilder</a>(<span class="keywordtype">int</span> _numID, QWidget *parent = NULL);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ~<a class="code" href="class_graph_builder.html">GraphBuilder</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_graph_builder.html#a3662fd51e11fae2dc18d74253b8307bd">   36</a></span>&#160;    std::list&lt;solver *&gt; *<a class="code" href="class_graph_builder.html#a3662fd51e11fae2dc18d74253b8307bd">solvers</a>;  </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_graph_builder.html#a6d34d5a88dc22057f9cad6b2acf8ff16">   38</a></span>&#160;    std::list&lt;QString *&gt; *<a class="code" href="class_graph_builder.html#a6d34d5a88dc22057f9cad6b2acf8ff16">Slines</a>;  </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_graph_builder.html#afbc0e4880d5cbdb34238cb18ffe02122">   40</a></span>&#160;    std::list&lt;QString *&gt; *<a class="code" href="class_graph_builder.html#afbc0e4880d5cbdb34238cb18ffe02122">SlinesOld</a>;  </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> LMB; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">double</span> scale; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> offx, offy; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> startx, starty, offbegx, offbegy; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::vector&lt;std::pair&lt;int, int&gt;&gt; *dots;  </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> build(<a class="code" href="classsolver.html">solver</a>* solv);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a5546182390d388d2883c4c30a82e2a5e">closeEvent</a>(QCloseEvent *event);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#adcabce8cde653c495dfa484bdc0b7594">resizeEvent</a>(QResizeEvent *event);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#ace63379df99c3c18965411e558223f62">paintEvent</a>(QPaintEvent *event);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#af2830a71a342d8b20ac7423a81c3f7db">wheelEvent</a>(QWheelEvent *event);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a13b107e934026d5d02b41d20d76afe8d">mousePressEvent</a>(QMouseEvent *event);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a7232dc4fb0a1e3d923e3294091b6f185">mouseReleaseEvent</a>(QMouseEvent *event);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a6284a67e14e0d58c6e1c1729347107e9">mouseMoveEvent</a>(QMouseEvent *event);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#af2a8e9db9c58a07905e9af800796de55">formatUpdate</a>();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;signals:</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_graph_builder.html#a9ba90c85f62849879cfc529f65c42c52">  100</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a9ba90c85f62849879cfc529f65c42c52">sendClosed</a>();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="struct_graph_layout.html">  107</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_graph_layout.html">GraphLayout</a> : <span class="keyword">public</span> QWidget {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622">  110</a></span>&#160;    QLabel *<a class="code" href="struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622">lbl</a>; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd">  111</a></span>&#160;    std::list&lt;QLineEdit*&gt; <a class="code" href="struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd">lines</a>; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    QPushButton *ok, *close, *plus, *minus; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    QHBoxLayout *mainHor, *linesHor;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#aeb652294e0689a54a3d6124a108e1983">  114</a></span>&#160;    QSpinBox *<a class="code" href="struct_graph_layout.html#aeb652294e0689a54a3d6124a108e1983">sb</a>; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#a0eea775158d5610c541d3262af9d13e6">  115</a></span>&#160;    QSlider *<a class="code" href="struct_graph_layout.html#a0eea775158d5610c541d3262af9d13e6">sl</a>;  </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe">  116</a></span>&#160;    <a class="code" href="class_graph_builder.html">GraphBuilder</a> *<a class="code" href="struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe">GS</a>;  </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="struct_graph_layout.html#af316aa80b73e6fa0c36efc6824a89141">GraphLayout</a>(<span class="keywordtype">int</span> _numID, QWidget *parent = NULL);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    ~<a class="code" href="struct_graph_layout.html">GraphLayout</a>();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> deleteGraphClicked();</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> okClicked();</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> setTransparency(<span class="keywordtype">int</span> optlvl);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> plusClicked();</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> minusClicked();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;calc.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QtWidgets/QMainWindow&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QPainter&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QWheelEvent&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMouseEvent&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QResizeEvent&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QCloseEvent&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QlineEdit&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QCheckBox&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;QSpinBox&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;QSlider&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QHBoxLayout&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_graph_builder.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_graph_builder.html">GraphBuilder</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_graph_builder.html">GraphBuilder</a>(<span class="keywordtype">int</span> _numID, QWidget *parent = NULL);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    ~<a class="code" href="class_graph_builder.html">GraphBuilder</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_graph_builder.html#a3662fd51e11fae2dc18d74253b8307bd">   37</a></span>&#160;    std::list&lt;solver *&gt; *<a class="code" href="class_graph_builder.html#a3662fd51e11fae2dc18d74253b8307bd">solvers</a>;  </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_graph_builder.html#a6d34d5a88dc22057f9cad6b2acf8ff16">   39</a></span>&#160;    std::list&lt;QString *&gt; *<a class="code" href="class_graph_builder.html#a6d34d5a88dc22057f9cad6b2acf8ff16">Slines</a>;  </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_graph_builder.html#afbc0e4880d5cbdb34238cb18ffe02122">   41</a></span>&#160;    std::list&lt;QString *&gt; *<a class="code" href="class_graph_builder.html#afbc0e4880d5cbdb34238cb18ffe02122">SlinesOld</a>;  </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> LMB; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> scale; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span> offx, offy; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> startx, starty, offbegx, offbegy; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::vector&lt;std::pair&lt;int, int&gt;&gt; *dots;  </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> build(<a class="code" href="classsolver.html">solver</a>* solv);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a5546182390d388d2883c4c30a82e2a5e">closeEvent</a>(QCloseEvent *event);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#adcabce8cde653c495dfa484bdc0b7594">resizeEvent</a>(QResizeEvent *event);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#ace63379df99c3c18965411e558223f62">paintEvent</a>(QPaintEvent *event);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#af2830a71a342d8b20ac7423a81c3f7db">wheelEvent</a>(QWheelEvent *event);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a13b107e934026d5d02b41d20d76afe8d">mousePressEvent</a>(QMouseEvent *event);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a7232dc4fb0a1e3d923e3294091b6f185">mouseReleaseEvent</a>(QMouseEvent *event);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a6284a67e14e0d58c6e1c1729347107e9">mouseMoveEvent</a>(QMouseEvent *event);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#af2a8e9db9c58a07905e9af800796de55">formatUpdate</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;signals:</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_graph_builder.html#a9ba90c85f62849879cfc529f65c42c52">  101</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_graph_builder.html#a9ba90c85f62849879cfc529f65c42c52">sendClosed</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="struct_graph_layout.html">  108</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_graph_layout.html">GraphLayout</a> : <span class="keyword">public</span> QWidget {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622">  111</a></span>&#160;    QLabel *<a class="code" href="struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622">lbl</a>; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd">  112</a></span>&#160;    std::list&lt;QLineEdit*&gt; <a class="code" href="struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd">lines</a>; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    QPushButton *ok, *close, *plus, *minus; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    QHBoxLayout *mainHor, *linesHor;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#aeb652294e0689a54a3d6124a108e1983">  115</a></span>&#160;    QSpinBox *<a class="code" href="struct_graph_layout.html#aeb652294e0689a54a3d6124a108e1983">sb</a>; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#a0eea775158d5610c541d3262af9d13e6">  116</a></span>&#160;    QSlider *<a class="code" href="struct_graph_layout.html#a0eea775158d5610c541d3262af9d13e6">sl</a>;  </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe">  117</a></span>&#160;    <a class="code" href="class_graph_builder.html">GraphBuilder</a> *<a class="code" href="struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe">GS</a>;  </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="struct_graph_layout.html#af316aa80b73e6fa0c36efc6824a89141">GraphLayout</a>(<span class="keywordtype">int</span> _numID, QWidget *parent = NULL);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    ~<a class="code" href="struct_graph_layout.html">GraphLayout</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="struct_graph_layout.html#aa0b67c3110f3ab814139544bcf3dd914">deleteGraphClicked</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="struct_graph_layout.html#a51da092709881ba6ee5029237fef7189">okClicked</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="struct_graph_layout.html#a367434f370130d54acb78e76fff9b50b">setTransparency</a>(<span class="keywordtype">int</span> optlvl);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="struct_graph_layout.html#a47f68aa45bfb6e1b57ee49754ee76c8b">plusClicked</a>();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="struct_graph_layout.html#adbb7221839411e79920723da2230f227">minusClicked</a>();</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;signals:</div>
 <div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="struct_graph_layout.html#a3980881875f02a5c1c1fd46061560b52">  154</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="struct_graph_layout.html#a3980881875f02a5c1c1fd46061560b52">sendForm</a>();</div>
@@ -165,45 +165,56 @@ $(function() {
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="class_my_window.html">MyWindow</a>(QWidget *parent = 0);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    QPushButton *addGraphingLine; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    QHBoxLayout *menueHor; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    QVBoxLayout *mainVer;  </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    std::list&lt;GraphLayout*&gt; graphLines;  </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">int</span> linesNum; <span class="comment">//**&lt; How many graphing lines already were created */</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">void</span> addGraphLine();</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">void</span> closeEvent(QCloseEvent *event);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span> addGraphClicked();</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">void</span> deleteGraphLine(<a class="code" href="struct_graph_layout.html">GraphLayout</a> *curLay);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;};</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    QPushButton *viewInfo; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    QLabel *InfoWidget;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    QHBoxLayout *menueHor; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    QVBoxLayout *mainVer;  </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    std::list&lt;GraphLayout*&gt; graphLines;  </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">int</span> linesNum; <span class="comment">//**&lt; How many graphing lines already were created */</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">void</span> addGraphLine();</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">void</span> closeEvent(QCloseEvent *event);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">void</span> addGraphClicked();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">void</span> viewInfoClicked();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">void</span> deleteGraphLine(<a class="code" href="struct_graph_layout.html">GraphLayout</a> *curLay);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">void</span> keyPressEvent(QKeyEvent *event);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;};</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_graph_builder_html_a5546182390d388d2883c4c30a82e2a5e"><div class="ttname"><a href="class_graph_builder.html#a5546182390d388d2883c4c30a82e2a5e">GraphBuilder::closeEvent</a></div><div class="ttdeci">void closeEvent(QCloseEvent *event)</div><div class="ttdoc">deletes graphic layout of this graphing widget if widget is closed</div><div class="ttdef"><b>Definition:</b> windows.cpp:36</div></div>
-<div class="ttc" id="aclass_graph_builder_html_af2830a71a342d8b20ac7423a81c3f7db"><div class="ttname"><a href="class_graph_builder.html#af2830a71a342d8b20ac7423a81c3f7db">GraphBuilder::wheelEvent</a></div><div class="ttdeci">void wheelEvent(QWheelEvent *event)</div><div class="ttdoc">captures mouse wheel movement. changes scope of graphics.</div><div class="ttdef"><b>Definition:</b> windows.cpp:96</div></div>
-<div class="ttc" id="aclasssolver_html"><div class="ttname"><a href="classsolver.html">solver</a></div><div class="ttdef"><b>Definition:</b> calc.h:20</div></div>
-<div class="ttc" id="astruct_graph_layout_html_add6f043bc9c9ab85448e1373cde95abd"><div class="ttname"><a href="struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd">GraphLayout::lines</a></div><div class="ttdeci">std::list&lt; QLineEdit * &gt; lines</div><div class="ttdef"><b>Definition:</b> windows.h:111</div></div>
-<div class="ttc" id="astruct_graph_layout_html_af3498af72af1a69bc230e8ec9b4f56fe"><div class="ttname"><a href="struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe">GraphLayout::GS</a></div><div class="ttdeci">GraphBuilder * GS</div><div class="ttdef"><b>Definition:</b> windows.h:116</div></div>
-<div class="ttc" id="astruct_graph_layout_html_a0eea775158d5610c541d3262af9d13e6"><div class="ttname"><a href="struct_graph_layout.html#a0eea775158d5610c541d3262af9d13e6">GraphLayout::sl</a></div><div class="ttdeci">QSlider * sl</div><div class="ttdef"><b>Definition:</b> windows.h:115</div></div>
+<div class="ttc" id="aclass_graph_builder_html_a5546182390d388d2883c4c30a82e2a5e"><div class="ttname"><a href="class_graph_builder.html#a5546182390d388d2883c4c30a82e2a5e">GraphBuilder::closeEvent</a></div><div class="ttdeci">void closeEvent(QCloseEvent *event)</div><div class="ttdoc">deletes graphic layout of this graphing widget if widget is closed</div><div class="ttdef"><b>Definition:</b> windows.cpp:40</div></div>
+<div class="ttc" id="aclass_graph_builder_html_af2830a71a342d8b20ac7423a81c3f7db"><div class="ttname"><a href="class_graph_builder.html#af2830a71a342d8b20ac7423a81c3f7db">GraphBuilder::wheelEvent</a></div><div class="ttdeci">void wheelEvent(QWheelEvent *event)</div><div class="ttdoc">captures mouse wheel movement. changes scope of graphics.</div><div class="ttdef"><b>Definition:</b> windows.cpp:106</div></div>
+<div class="ttc" id="astruct_graph_layout_html_adbb7221839411e79920723da2230f227"><div class="ttname"><a href="struct_graph_layout.html#adbb7221839411e79920723da2230f227">GraphLayout::minusClicked</a></div><div class="ttdeci">void minusClicked()</div><div class="ttdoc">removes last editable line if number of lines more then 1</div><div class="ttdef"><b>Definition:</b> windows.cpp:237</div></div>
+<div class="ttc" id="aclasssolver_html"><div class="ttname"><a href="classsolver.html">solver</a></div><div class="ttdoc">node for binary tree of operations</div><div class="ttdef"><b>Definition:</b> calc.h:16</div></div>
+<div class="ttc" id="astruct_graph_layout_html_a51da092709881ba6ee5029237fef7189"><div class="ttname"><a href="struct_graph_layout.html#a51da092709881ba6ee5029237fef7189">GraphLayout::okClicked</a></div><div class="ttdeci">void okClicked()</div><div class="ttdoc">takes strings from editable lines to use in GS for graph drowing</div><div class="ttdef"><b>Definition:</b> windows.cpp:212</div></div>
+<div class="ttc" id="astruct_graph_layout_html_a367434f370130d54acb78e76fff9b50b"><div class="ttname"><a href="struct_graph_layout.html#a367434f370130d54acb78e76fff9b50b">GraphLayout::setTransparency</a></div><div class="ttdeci">void setTransparency(int optlvl)</div><div class="ttdoc">sets transparency</div><div class="ttdef"><b>Definition:</b> windows.cpp:226</div></div>
+<div class="ttc" id="astruct_graph_layout_html_add6f043bc9c9ab85448e1373cde95abd"><div class="ttname"><a href="struct_graph_layout.html#add6f043bc9c9ab85448e1373cde95abd">GraphLayout::lines</a></div><div class="ttdeci">std::list&lt; QLineEdit * &gt; lines</div><div class="ttdef"><b>Definition:</b> windows.h:112</div></div>
+<div class="ttc" id="astruct_graph_layout_html_af3498af72af1a69bc230e8ec9b4f56fe"><div class="ttname"><a href="struct_graph_layout.html#af3498af72af1a69bc230e8ec9b4f56fe">GraphLayout::GS</a></div><div class="ttdeci">GraphBuilder * GS</div><div class="ttdef"><b>Definition:</b> windows.h:117</div></div>
+<div class="ttc" id="astruct_graph_layout_html_a0eea775158d5610c541d3262af9d13e6"><div class="ttname"><a href="struct_graph_layout.html#a0eea775158d5610c541d3262af9d13e6">GraphLayout::sl</a></div><div class="ttdeci">QSlider * sl</div><div class="ttdef"><b>Definition:</b> windows.h:116</div></div>
 <div class="ttc" id="astruct_graph_layout_html_a9a33e55ebe3449642869a1a3d5715d2c"><div class="ttname"><a href="struct_graph_layout.html#a9a33e55ebe3449642869a1a3d5715d2c">GraphLayout::sendDeleteGraph</a></div><div class="ttdeci">void sendDeleteGraph(GraphLayout *abc)</div><div class="ttdoc">signal connected to deleteGraphClicked() from parantual widget. Deletes this graphing line.</div></div>
 <div class="ttc" id="astruct_graph_layout_html_a3980881875f02a5c1c1fd46061560b52"><div class="ttname"><a href="struct_graph_layout.html#a3980881875f02a5c1c1fd46061560b52">GraphLayout::sendForm</a></div><div class="ttdeci">void sendForm()</div><div class="ttdoc">signal connected to formUpdate() in GS. Initialte updating of parsing changed strings.</div></div>
-<div class="ttc" id="astruct_graph_layout_html_af316aa80b73e6fa0c36efc6824a89141"><div class="ttname"><a href="struct_graph_layout.html#af316aa80b73e6fa0c36efc6824a89141">GraphLayout::GraphLayout</a></div><div class="ttdeci">GraphLayout(int _numID, QWidget *parent=NULL)</div><div class="ttdoc">creates body for graphing line</div><div class="ttdef"><b>Definition:</b> windows.cpp:156</div></div>
-<div class="ttc" id="astruct_graph_layout_html_a00eeb3ebc093ef4261e69e3f6d180622"><div class="ttname"><a href="struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622">GraphLayout::lbl</a></div><div class="ttdeci">QLabel * lbl</div><div class="ttdef"><b>Definition:</b> windows.h:110</div></div>
-<div class="ttc" id="aclass_graph_builder_html_afbc0e4880d5cbdb34238cb18ffe02122"><div class="ttname"><a href="class_graph_builder.html#afbc0e4880d5cbdb34238cb18ffe02122">GraphBuilder::SlinesOld</a></div><div class="ttdeci">std::list&lt; QString * &gt; * SlinesOld</div><div class="ttdef"><b>Definition:</b> windows.h:40</div></div>
-<div class="ttc" id="aclass_graph_builder_html_a6d34d5a88dc22057f9cad6b2acf8ff16"><div class="ttname"><a href="class_graph_builder.html#a6d34d5a88dc22057f9cad6b2acf8ff16">GraphBuilder::Slines</a></div><div class="ttdeci">std::list&lt; QString * &gt; * Slines</div><div class="ttdef"><b>Definition:</b> windows.h:38</div></div>
+<div class="ttc" id="astruct_graph_layout_html_af316aa80b73e6fa0c36efc6824a89141"><div class="ttname"><a href="struct_graph_layout.html#af316aa80b73e6fa0c36efc6824a89141">GraphLayout::GraphLayout</a></div><div class="ttdeci">GraphLayout(int _numID, QWidget *parent=NULL)</div><div class="ttdoc">creates body for graphing line</div><div class="ttdef"><b>Definition:</b> windows.cpp:166</div></div>
+<div class="ttc" id="astruct_graph_layout_html_a00eeb3ebc093ef4261e69e3f6d180622"><div class="ttname"><a href="struct_graph_layout.html#a00eeb3ebc093ef4261e69e3f6d180622">GraphLayout::lbl</a></div><div class="ttdeci">QLabel * lbl</div><div class="ttdef"><b>Definition:</b> windows.h:111</div></div>
+<div class="ttc" id="aclass_graph_builder_html_afbc0e4880d5cbdb34238cb18ffe02122"><div class="ttname"><a href="class_graph_builder.html#afbc0e4880d5cbdb34238cb18ffe02122">GraphBuilder::SlinesOld</a></div><div class="ttdeci">std::list&lt; QString * &gt; * SlinesOld</div><div class="ttdef"><b>Definition:</b> windows.h:41</div></div>
+<div class="ttc" id="aclass_graph_builder_html_a6d34d5a88dc22057f9cad6b2acf8ff16"><div class="ttname"><a href="class_graph_builder.html#a6d34d5a88dc22057f9cad6b2acf8ff16">GraphBuilder::Slines</a></div><div class="ttdeci">std::list&lt; QString * &gt; * Slines</div><div class="ttdef"><b>Definition:</b> windows.h:39</div></div>
+<div class="ttc" id="astruct_graph_layout_html_aa0b67c3110f3ab814139544bcf3dd914"><div class="ttname"><a href="struct_graph_layout.html#aa0b67c3110f3ab814139544bcf3dd914">GraphLayout::deleteGraphClicked</a></div><div class="ttdeci">void deleteGraphClicked()</div><div class="ttdoc">deletes current graphing line on button click</div><div class="ttdef"><b>Definition:</b> windows.cpp:223</div></div>
 <div class="ttc" id="aclass_my_window_html"><div class="ttname"><a href="class_my_window.html">MyWindow</a></div><div class="ttdoc">main window of application.</div><div class="ttdef"><b>Definition:</b> windows.h:166</div></div>
-<div class="ttc" id="aclass_graph_builder_html_ace63379df99c3c18965411e558223f62"><div class="ttname"><a href="class_graph_builder.html#ace63379df99c3c18965411e558223f62">GraphBuilder::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *event)</div><div class="ttdoc">updates all graphics in widget</div><div class="ttdef"><b>Definition:</b> windows.cpp:44</div></div>
-<div class="ttc" id="astruct_graph_layout_html_aeb652294e0689a54a3d6124a108e1983"><div class="ttname"><a href="struct_graph_layout.html#aeb652294e0689a54a3d6124a108e1983">GraphLayout::sb</a></div><div class="ttdeci">QSpinBox * sb</div><div class="ttdef"><b>Definition:</b> windows.h:114</div></div>
-<div class="ttc" id="astruct_graph_layout_html"><div class="ttname"><a href="struct_graph_layout.html">GraphLayout</a></div><div class="ttdoc">Command line for graphing widget.</div><div class="ttdef"><b>Definition:</b> windows.h:107</div></div>
-<div class="ttc" id="aclass_graph_builder_html_a7232dc4fb0a1e3d923e3294091b6f185"><div class="ttname"><a href="class_graph_builder.html#a7232dc4fb0a1e3d923e3294091b6f185">GraphBuilder::mouseReleaseEvent</a></div><div class="ttdeci">void mouseReleaseEvent(QMouseEvent *event)</div><div class="ttdoc">captures release events.</div><div class="ttdef"><b>Definition:</b> windows.cpp:129</div></div>
+<div class="ttc" id="aclass_graph_builder_html_ace63379df99c3c18965411e558223f62"><div class="ttname"><a href="class_graph_builder.html#ace63379df99c3c18965411e558223f62">GraphBuilder::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *event)</div><div class="ttdoc">updates all graphics in widget</div><div class="ttdef"><b>Definition:</b> windows.cpp:48</div></div>
+<div class="ttc" id="astruct_graph_layout_html_aeb652294e0689a54a3d6124a108e1983"><div class="ttname"><a href="struct_graph_layout.html#aeb652294e0689a54a3d6124a108e1983">GraphLayout::sb</a></div><div class="ttdeci">QSpinBox * sb</div><div class="ttdef"><b>Definition:</b> windows.h:115</div></div>
+<div class="ttc" id="astruct_graph_layout_html"><div class="ttname"><a href="struct_graph_layout.html">GraphLayout</a></div><div class="ttdoc">Command line for graphing widget.</div><div class="ttdef"><b>Definition:</b> windows.h:108</div></div>
+<div class="ttc" id="aclass_graph_builder_html_a7232dc4fb0a1e3d923e3294091b6f185"><div class="ttname"><a href="class_graph_builder.html#a7232dc4fb0a1e3d923e3294091b6f185">GraphBuilder::mouseReleaseEvent</a></div><div class="ttdeci">void mouseReleaseEvent(QMouseEvent *event)</div><div class="ttdoc">captures release events.</div><div class="ttdef"><b>Definition:</b> windows.cpp:139</div></div>
+<div class="ttc" id="astruct_graph_layout_html_a47f68aa45bfb6e1b57ee49754ee76c8b"><div class="ttname"><a href="struct_graph_layout.html#a47f68aa45bfb6e1b57ee49754ee76c8b">GraphLayout::plusClicked</a></div><div class="ttdeci">void plusClicked()</div><div class="ttdoc">adds a new editable line</div><div class="ttdef"><b>Definition:</b> windows.cpp:229</div></div>
 <div class="ttc" id="aclass_graph_builder_html_a9ba90c85f62849879cfc529f65c42c52"><div class="ttname"><a href="class_graph_builder.html#a9ba90c85f62849879cfc529f65c42c52">GraphBuilder::sendClosed</a></div><div class="ttdeci">void sendClosed()</div><div class="ttdoc">deletes graphing line if it's widget is closed.</div></div>
-<div class="ttc" id="aclass_graph_builder_html_a6284a67e14e0d58c6e1c1729347107e9"><div class="ttname"><a href="class_graph_builder.html#a6284a67e14e0d58c6e1c1729347107e9">GraphBuilder::mouseMoveEvent</a></div><div class="ttdeci">void mouseMoveEvent(QMouseEvent *event)</div><div class="ttdoc">captures movement of mouse.</div><div class="ttdef"><b>Definition:</b> windows.cpp:134</div></div>
-<div class="ttc" id="aclass_graph_builder_html_a3662fd51e11fae2dc18d74253b8307bd"><div class="ttname"><a href="class_graph_builder.html#a3662fd51e11fae2dc18d74253b8307bd">GraphBuilder::solvers</a></div><div class="ttdeci">std::list&lt; solver * &gt; * solvers</div><div class="ttdef"><b>Definition:</b> windows.h:36</div></div>
-<div class="ttc" id="aclass_graph_builder_html"><div class="ttname"><a href="class_graph_builder.html">GraphBuilder</a></div><div class="ttdoc">widget on which graph is being drawn.</div><div class="ttdef"><b>Definition:</b> windows.h:28</div></div>
-<div class="ttc" id="aclass_graph_builder_html_adcabce8cde653c495dfa484bdc0b7594"><div class="ttname"><a href="class_graph_builder.html#adcabce8cde653c495dfa484bdc0b7594">GraphBuilder::resizeEvent</a></div><div class="ttdeci">void resizeEvent(QResizeEvent *event)</div><div class="ttdoc">changes number of dots for graphic building</div><div class="ttdef"><b>Definition:</b> windows.cpp:39</div></div>
-<div class="ttc" id="aclass_graph_builder_html_af2a8e9db9c58a07905e9af800796de55"><div class="ttname"><a href="class_graph_builder.html#af2a8e9db9c58a07905e9af800796de55">GraphBuilder::formatUpdate</a></div><div class="ttdeci">void formatUpdate()</div><div class="ttdoc">updates equations for graph builing</div><div class="ttdef"><b>Definition:</b> windows.cpp:142</div></div>
-<div class="ttc" id="aclass_graph_builder_html_a13b107e934026d5d02b41d20d76afe8d"><div class="ttname"><a href="class_graph_builder.html#a13b107e934026d5d02b41d20d76afe8d">GraphBuilder::mousePressEvent</a></div><div class="ttdeci">void mousePressEvent(QMouseEvent *event)</div><div class="ttdoc">captures mouse press button events.</div><div class="ttdef"><b>Definition:</b> windows.cpp:114</div></div>
+<div class="ttc" id="aclass_graph_builder_html_a6284a67e14e0d58c6e1c1729347107e9"><div class="ttname"><a href="class_graph_builder.html#a6284a67e14e0d58c6e1c1729347107e9">GraphBuilder::mouseMoveEvent</a></div><div class="ttdeci">void mouseMoveEvent(QMouseEvent *event)</div><div class="ttdoc">captures movement of mouse.</div><div class="ttdef"><b>Definition:</b> windows.cpp:144</div></div>
+<div class="ttc" id="aclass_graph_builder_html_a3662fd51e11fae2dc18d74253b8307bd"><div class="ttname"><a href="class_graph_builder.html#a3662fd51e11fae2dc18d74253b8307bd">GraphBuilder::solvers</a></div><div class="ttdeci">std::list&lt; solver * &gt; * solvers</div><div class="ttdef"><b>Definition:</b> windows.h:37</div></div>
+<div class="ttc" id="aclass_graph_builder_html"><div class="ttname"><a href="class_graph_builder.html">GraphBuilder</a></div><div class="ttdoc">widget on which graph is being drawn.</div><div class="ttdef"><b>Definition:</b> windows.h:29</div></div>
+<div class="ttc" id="aclass_graph_builder_html_adcabce8cde653c495dfa484bdc0b7594"><div class="ttname"><a href="class_graph_builder.html#adcabce8cde653c495dfa484bdc0b7594">GraphBuilder::resizeEvent</a></div><div class="ttdeci">void resizeEvent(QResizeEvent *event)</div><div class="ttdoc">changes number of dots for graphic building</div><div class="ttdef"><b>Definition:</b> windows.cpp:43</div></div>
+<div class="ttc" id="aclass_graph_builder_html_af2a8e9db9c58a07905e9af800796de55"><div class="ttname"><a href="class_graph_builder.html#af2a8e9db9c58a07905e9af800796de55">GraphBuilder::formatUpdate</a></div><div class="ttdeci">void formatUpdate()</div><div class="ttdoc">updates equations for graph builing</div><div class="ttdef"><b>Definition:</b> windows.cpp:152</div></div>
+<div class="ttc" id="aclass_graph_builder_html_a13b107e934026d5d02b41d20d76afe8d"><div class="ttname"><a href="class_graph_builder.html#a13b107e934026d5d02b41d20d76afe8d">GraphBuilder::mousePressEvent</a></div><div class="ttdeci">void mousePressEvent(QMouseEvent *event)</div><div class="ttdoc">captures mouse press button events.</div><div class="ttdef"><b>Definition:</b> windows.cpp:124</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

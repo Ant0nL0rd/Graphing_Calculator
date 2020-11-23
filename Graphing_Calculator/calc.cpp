@@ -20,6 +20,21 @@
 #define ISFUN(x) (x > -129 && x < -116)
 #define ISBINF(x) (x == '*' || x == '/' || x == '+' || x == '-' || x == '^' || x == Xlog || x == Xmod)
 
+struct solver::node {
+	node *l, *r, *par;
+	char sig;
+	bool var; /**< true if variable is used in this part of equation. */
+	double val;
+	node() : l(nullptr), r(nullptr), par(nullptr), sig(NULL), var(false), val(0) {}
+};
+
+struct solver::BorNode {
+	std::map<char, BorNode *> next;
+	int depth;
+	char code;
+	BorNode(int depth_ = 0) : depth(depth_), code(NULL) {}
+};
+
 solver::solver(std::string _eq) : seq(_eq), root(new node), bor(new BorNode) {
 	std::string strs[14] = { "mod", "sin", "sh", "cos", "ch", "tan", "th", "exp", "ln", "floor", "arcsin", "arccos", "arctan", "log"};
 	char chrs[14] = { Xmod, Xsin, Xsh, Xcos, Xch, Xtan, Xth, Xexp, Xln, Xfloor, Xarcsin, Xarccos, Xarctan, Xlog};
