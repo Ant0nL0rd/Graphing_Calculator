@@ -124,7 +124,7 @@ public:
     GraphLayout(int _numID, QWidget *parent = NULL);
     ~GraphLayout();
 
-private slots:
+public slots:
     /// <summary>
     /// deletes current graphing line on button click
     /// </summary>
@@ -146,7 +146,6 @@ private slots:
     /// removes last editable line if number of lines more then 1
     /// </summary>
     void minusClicked();
-
 
 signals:
     /// <summary>
@@ -203,5 +202,12 @@ private slots:
     /// </summary>
     /// <param name="curLay">graphing line layout is being removed</param>
     void deleteGraphLine(GraphLayout *curLay);
+
+    /// <summary>
+    /// sends all strings when enter ckicked
+    /// </summary>
+    /// <param name="event">QKeyEvent class</param>
+    void keyPressEvent(QKeyEvent *event);
+
 };
 

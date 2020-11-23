@@ -13,19 +13,34 @@
 #define Xth -120
 #define Xexp -119
 #define Xln -118
+#define Xfloor -117
+#define Xmod -116
+#define Xlog -115
 
-#define ISFUN(x) (x > -129 && x < -117)
+#define ISFUN(x) (x > -129 && x < -116)
+#define ISBINF(x) (x == '*' || x == '/' || x == '+' || x == '-' || x == '^' || x == Xlog || x == Xmod)
 
-solver::solver(std::string _eq) : seq(_eq), root(new node) {
+solver::solver(std::string _eq) : seq(_eq), root(new node), bor(new BorNode) {
+	std::string strs[14] = { "mod", "sin", "sh", "cos", "ch", "tan", "th", "exp", "ln", "floor", "arcsin", "arccos", "arctan", "log"};
+	char chrs[14] = { Xmod, Xsin, Xsh, Xcos, Xch, Xtan, Xth, Xexp, Xln, Xfloor, Xarcsin, Xarccos, Xarctan, Xlog};
+	bor = new BorNode;
+	BorNode *cur = new BorNode(0);
+	for (int i = 0; i < 14; ++i) {
+		cur = bor;
+		for (auto ita : strs[i]) {
+			if (cur->next.find(ita) == cur->next.end()) {
+				cur->next[ita] = new BorNode(cur->depth + 1);
+			}
+			cur = cur->next[ita];
+		}
+		cur->code = chrs[i];
+	}
 	parser(_eq);
 }
 
 solver::~solver() {
 	destroy(root);
-}
-
-double solver::count(double var) {
-	return rec_count(root, var);
+	destroyBor(bor);
 }
 
 void solver::destroy(node *cur) {
@@ -38,11 +53,18 @@ void solver::destroy(node *cur) {
 	delete cur;
 }
 
+void solver::destroyBor(BorNode *cur) {
+	for (auto it : cur->next) {
+		destroyBor(it.second);
+	}
+	delete cur;
+}
+
 void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 	int depth = 0;//add parenthesis around every operation
 	for (auto it = work->begin(); it != work->end(); ++it) {
 		int count = 0;
-		if (*it == '(') {
+		if (*it == '(' || *it == '[') {
 			++depth;
 		} else if (*it == ')') {
 			--depth;
@@ -95,7 +117,7 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 					--itb;
 				}
 			}
-			if ((*itb != '(' && *itb != '[') || *ita != ')') {
+			if (*itb != '(' || *ita != ')') {
 				++itb;
 				work->insert(itb, '(');
 				work->insert(ita, ')');
@@ -104,76 +126,31 @@ void solver::insertParenthesis(std::list<char> *work, char ch1, char ch2) {
 	}
 }
 
-void solver::parser(std::string eq) {
-	seq = eq;//create operations tree out of string
-	destroy(root);
-	node *cur = root = new node;
-	std::list<char> *strL = new std::list<char>;
-
-	for (auto it : eq) {
+void solver::process(std::list<char> *strL) {
+	for (auto it : seq) {
 		strL->push_back(it);
 	}
 	if (strL->front() == '\\') {
 		strL->pop_front();
-		while(strL->front() != '\\') {
+		while (strL->front() != '\\') {
 			strL->pop_front();
 		}
 	}
 	strL->push_front('\\');
 	strL->push_back('\\');
+	BorNode *cur = bor;
 	for (auto it = strL->begin(); it != strL->end(); ++it) {
-		auto ita = it;
-		++ita;
-		if (*it == 's') {
-			if (*ita != '(') {
-				if (*ita++ == 'i' && *ita == 'n') {
-					strL->erase((ita--));
-					strL->erase(ita);
-					*it = Xsin;
-				} else if (*ita == 'h') {
-					strL->erase(ita);
-					*it = Xsh;
+		if (cur->next.find(*it) == cur->next.end()) {
+			cur = bor;
+		} else {
+			cur = cur->next[*it];
+			if (cur->next.empty()) {
+				for (int i = 0; i < cur->depth - 1; ++i) {
+					strL->erase(it--);
 				}
+				*it = cur->code;
+				cur = bor;
 			}
-		}else if (*it == 'c') {
-			if (*ita != '(') {
-				if (*ita++ == 'o' && *ita =='s') {
-					strL->erase((ita--));
-					strL->erase(ita);
-					*it = Xcos;
-				} else if (*ita == 'h') {
-					strL->erase(ita);
-					*it = Xch;
-				}
-			}
-		}else if (*it == 't') {
-			if (*ita++ == 'a' && *ita == 'n') {
-					strL->erase((ita--));
-					strL->erase(ita);
-					*it = Xtan;
-			} else if (*ita == 'h') {
-				strL->erase(ita);
-				*it = Xth;
-			}
-		}else if (*it == 'e') {
-			if (*ita++ == 'x' && *ita == 'p') {
-				strL->erase((ita--));
-				strL->erase(ita);
-				*it = Xexp;
-			}
-		} else if (*it == 'a' && *ita++ == 'r' && *ita++ == 'c') {
-			switch (*ita) {
-			case 's': if (*++ita == 'i' && *++ita == 'n') { *it == Xarcsin; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
-			case 'c': if (*++ita == 'o' && *++ita == 's') { *it == Xarccos; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
-			case 't': if (*++ita == 'a' && *++ita == 'n') { *it == Xarctan; for (int i = 0; i < 5; ++i) { strL->erase(ita--); } } break;
-			}
-		} else if (*it == 'l' && *ita == 'n') {
-			strL->erase(ita);
-			*it = Xln;
-		}
-		if (ISFUN(*it)) {
-			++it;
-			*it = '[';
 		}
 	}
 	for (auto it = strL->begin(); it != strL->end(); ++it) {
@@ -193,26 +170,42 @@ void solver::parser(std::string eq) {
 			strL->erase(ita);
 		} else if (*it == 'g') {
 			for (auto ita : "1.61803398874989484820") {
-					strL->insert(it, ita);
+				strL->insert(it, ita);
 			}
 			auto ita = it;
 			--it;
 			strL->erase(ita);
 		}
 	}
-	insertParenthesis(strL, '^', 'l');
+	for (auto it = strL->begin(); it != strL->end(); ++it) {
+		if (ISFUN(*it)) {
+			++it;
+			*it = '[';
+		}
+	}
+	insertParenthesis(strL, '^', Xlog);
 	insertParenthesis(strL, '*', '/');
 	insertParenthesis(strL, '+', '-');
+	insertParenthesis(strL, Xmod, '-');
 	for (auto it = strL->begin(); it != strL->end(); ++it) {
 		if (*it == '[') {
 			*it = '(';
 		}
 	}
+	return;
+}
+
+void solver::parser(std::string eq) {
+	seq = eq;
+	std::list<char> *strL = new std::list<char>;
+	process(strL);
 	for (auto it : (*strL)) {
 		std::cout << it;
 	}
 	std::cout << '\n';
 	//start of tree building
+	destroy(root);
+	node *cur = root = new node;
 	for (auto it = strL->begin(); it != strL->end(); ++it) {
 		if (*it == '(') {
 			cur->l = new node;
@@ -237,19 +230,21 @@ void solver::parser(std::string eq) {
 				++it;
 			}
 			--it;
-		} else if (*it == '*' || *it == '/' || *it == '+' || *it == '-' || *it == '^' || *it == 'l') {
+		} else if (ISBINF(*it)) {
 			cur = cur->par;
 			cur->sig = *it;
 			cur->r = new node;
 			cur->r->par = cur;
 			cur = cur->r;
 		} else if (ISFUN(*it)) {
-			cur->fun = *it;
-			cur->l = new node;
-			cur->l->par = cur;
+			cur->sig = *it;
 		}
 	}
 	delete strL;
+}
+
+double solver::count(double var) {
+	return rec_count(root, var);
 }
 
 double solver::rec_count(node *cur, double var) {
@@ -264,10 +259,8 @@ double solver::rec_count(node *cur, double var) {
 		case '*':	return rec_count(cur->l, var) * rec_count(cur->r, var); break;
 		case '/':	return rec_count(cur->l, var) / rec_count(cur->r, var); break;
 		case '^':	return pow(rec_count(cur->l, var), rec_count(cur->r, var)); break;
-		case 'l':	return log(rec_count(cur->l, var)) / log(rec_count(cur->r, var)); break;
-		}
-	} else {
-		switch (cur->fun) {
+		case Xlog:	return log(rec_count(cur->l, var)) / log(rec_count(cur->r, var)); break;
+		case Xmod:	return fmod(rec_count(cur->l, var), rec_count(cur->r, var)); break;
 		case Xsin:   	return(sin(rec_count(cur->l, var))); break;
 		case Xsh:	    return(sinh(rec_count(cur->l, var))); break;
 		case Xarcsin:	return(asin(rec_count(cur->l, var))); break;
@@ -279,6 +272,7 @@ double solver::rec_count(node *cur, double var) {
 		case Xarctan:	return(atan(rec_count(cur->l, var))); break;
 		case Xexp:	    return(exp(rec_count(cur->l, var))); break;
 		case Xln:       return(log(rec_count(cur->l, var))); break;
+		case Xfloor:    return((long long)rec_count(cur->l, var)); break;
 		}
 	}
 }

@@ -1,7 +1,8 @@
 #include "windows.h"
 
-#define INFO "functions:\nsin(x), arcsin(x), sh(x)\ncos(x), arccos(x), ch(x)\ntan(x), arctan(x), th(x)\nexp(x), ln(x)\nconstants:\n\
-p=3.14159265358979323846\ne=2.71828182845904523536\ng=1.61803398874989484820"
+#define INFO "functions:\nsin(x), arcsin(x), sh(x)\ncos(x), arccos(x), ch(x)\ntan(x), arctan(x), th(x)\nexp(x), ln(x), floor(x)\n\
+amodb, alogb (lna/lnb)\nconstants:\np=3.14159265358979323846\ne=2.71828182845904523536\ng=1.61803398874989484820\nEncolouring:\
+\n\\r\\-rad, \\b\\-blue, \\g\\-green\n\\y\\-yellow, \\v\\-violet\n\\c\\-cyan, \\#ffffff\\-castom"
 
 GraphBuilder::GraphBuilder(int _numID, QWidget *parent) : dots(new std::vector<std::pair<int, int>>(width() + 200)),
 Slines(new std::list<QString*>), SlinesOld(new std::list<QString *>), solvers(new std::list<solver *>), scale(60), offx(0), offy(0), LMB(false) {
@@ -250,7 +251,7 @@ void GraphLayout::minusClicked() {
 
 MyWindow::MyWindow(QWidget *parent) : QWidget(parent), linesNum(0), mainVer(new QVBoxLayout), 
 addGraphingLine(new QPushButton("Add graphing line")), viewInfo(new QPushButton("View Info")), InfoWidget(new QLabel(INFO))
-, menueHor(new QHBoxLayout){
+, menueHor(new QHBoxLayout) {
     setWindowTitle("Enter your Graph");
     InfoWidget->setStyleSheet("font: 18pt;");
     menueHor->addWidget(addGraphingLine);
@@ -271,21 +272,28 @@ void MyWindow::addGraphLine() {
     setLayout(mainVer);
     this->show();
 }
+void MyWindow::deleteGraphLine(GraphLayout *curLay) {
+    mainVer->removeItem(curLay->mainHor);
+    graphLines.remove(curLay);
+    delete curLay;
+}
 void MyWindow::addGraphClicked() {
     addGraphLine();
 }
 void MyWindow::viewInfoClicked() {
     InfoWidget->show();
 }
-void MyWindow::deleteGraphLine(GraphLayout *curLay) {
-    mainVer->removeItem(curLay->mainHor);
-    graphLines.remove(curLay);
-    delete curLay;
-}
 void MyWindow::closeEvent(QCloseEvent *event) {
     while (!graphLines.empty()) {//terminate all windows.
         GraphLayout *it = graphLines.front();
         graphLines.pop_front();
         delete it;
+    }
+}
+void MyWindow::keyPressEvent(QKeyEvent *event) {
+    if (!event->isAutoRepeat() && event->key() == 16777220) {
+        for (auto it : graphLines) {
+            it->okClicked();
+        }
     }
 }
